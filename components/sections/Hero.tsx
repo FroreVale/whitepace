@@ -1,21 +1,18 @@
 import Image from "next/image";
 import rightArrow from "@/public/icons/btn-right-arrow.svg";
 import businessIllustration from "@/public/business-1.svg";
-import element1 from "@/public/element-1.svg"
 
 export default function Hero() {
   return (
-    <section className="relative bg-primary-1">
+    <section className="bg-primary-1">
 
-      <div className="absolute top-0 w-5xl h-158 rotate-12 left-1/2 -translate-x-1/2">
-        <Image src={element1} fill alt="Background" />
-      </div>
-      <div className="bg-cover bg-center px-4 py-20 max-w-370 mx-auto">
+      <div className="px-4 py-20 max-w-370 mx-auto ">
 
         <div className="flex flex-col gap-25 items-center">
+
           <div className="flex flex-col gap-15 items-center">
             <div className="flex flex-col gap-6">
-              <h1 className="text-center font-bold text-4xl text-background">
+              <h1 className="text-center font-bold text-4xl md:text-[54px] text-background">
                 Get More Done with whitepace
               </h1>
               <p className="text-center text-lg text-background">
@@ -41,6 +38,7 @@ export default function Hero() {
         </div>
 
       </div>
+
     </section>
   );
 }
