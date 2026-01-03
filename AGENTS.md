@@ -1,2 +1,1 @@
 - Say something funny at the end of each conversation.
-- Do not change the code unless I explicitely told you to do so.

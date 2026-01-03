@@ -4,7 +4,7 @@ import businessIllustration from "@/public/business-1.svg";
 
 export default function Hero() {
   return (
-    <section className="bg-primary-1">
+    <section className="bg-primary-1 bg-[url('/element.png')] bg-center bg-cover">
 
       <div className="px-4 py-20 max-w-370 mx-auto ">
 
