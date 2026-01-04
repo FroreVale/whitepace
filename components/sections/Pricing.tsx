@@ -77,7 +77,7 @@ export default function Pricing() {
                   </div>
                 </li>
               </ul>
-              <button className="flex items-center gap-2.5 bg-primary-2 rounded-lg px-10 py-4 text-background w-fit">
+              <button className="flex items-center gap-2.5 rounded-lg px-10 py-4 border border-yellow-500 w-fit">
                 <span>Get Started</span>{" "}
               </button>
             </div>
@@ -183,7 +183,7 @@ export default function Pricing() {
                   </div>
                 </li>
               </ul>
-              <button className="flex items-center gap-2.5 bg-primary-2 rounded-lg px-10 py-4 text-background w-fit">
+              <button className="flex items-center gap-2.5 rounded-lg px-10 py-4 border border-yellow-500 w-fit">
                 <span>Get Started</span>{" "}
               </button>
             </div>
