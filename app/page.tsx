@@ -6,6 +6,7 @@ import WorkMangement from "@/components/sections/WorkManagement";
 import Pricing from "@/components/sections/Pricing";
 import YourWork from "@/components/sections/YourWork";
 import Data from "@/components/sections/Data";
+import Sponsors from "@/components/sections/Sponsors";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Pricing />
         <YourWork />
         <Data />
+        <Sponsors />
       </main>
     </>
   );
