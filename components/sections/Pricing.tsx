@@ -114,7 +114,7 @@ export default function Pricing() {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="pricing-pagination swiper-pagination static" />
+          <div className="pricing-pagination swiper-pagination static!" />
         </div>
 
         {/* Desktop: Grid */}
