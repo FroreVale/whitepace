@@ -9,6 +9,38 @@ import { Pagination } from "swiper/modules";
 import { CircleCheckBig } from "lucide-react";
 
 export default function Pricing() {
+  const plans = [
+    {
+      name: "Free",
+      price: "$0",
+      description: "Capture ideas and find them quickly",
+      highlight: "border",
+      ctaVariant: "outline",
+    },
+    {
+      name: "Personal",
+      price: "$11.2",
+      description: "Keep home and family on track",
+      highlight: "fill",
+      ctaVariant: "fill",
+    },
+    {
+      name: "Organization",
+      price: "$49.99",
+      description: "Capture ideas and find them quickly",
+      highlight: "border",
+      ctaVariant: "outline",
+    },
+  ];
+
+  const features = [
+    "Sync unlimited devices",
+    "10 GB monthly uploads",
+    "200 MB max. note size",
+    "Customize Home dashboard and access extra widgets",
+    "Connect primary Google Calendar account",
+    "Add due dates, reminders, and notifications to your tasks",
+  ];
 
   return (
     <section className="bg-background text-foreground">
@@ -29,176 +61,100 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* Swiper */}
-        <Swiper
-  modules={[Pagination]}
-  pagination={{
-    el: ".pricing-pagination",
-    clickable: true,
-  }}
-  className="mySwiper"
->
+        {/* Mobile/Tablet: Swiper */}
+        <div className="lg:hidden">
+          <Swiper
+            modules={[Pagination]}
+            pagination={{
+              el: ".pricing-pagination",
+              clickable: true,
+            }}
+            spaceBetween={16}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 1.2, spaceBetween: 20 },
+              768: { slidesPerView: 2, spaceBetween: 24 },
+            }}
+            className="mySwiper"
+          >
+            {plans.map((plan) => (
+              <SwiperSlide key={plan.name}>
+                <div
+                  className={`rounded-xl p-5 ${
+                    plan.highlight === "fill"
+                      ? "bg-primary-1 text-background"
+                      : "bg-background text-foreground border border-yellow-500"
+                  }`}
+                >
+                  <div className="flex flex-col gap-6 mb-6">
+                    <h3 className="font-semibold text-2xl">{plan.name}</h3>
+                    <p className="text-4xl font-bold">{plan.price}</p>
+                    <p>{plan.description}</p>
+                  </div>
+                  <ul className="flex flex-col gap-3 mb-6">
+                    {features.map((feature) => (
+                      <li key={feature}>
+                        <div className="flex gap-5">
+                          <CircleCheckBig color="gold" />
+                          <p>{feature}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    className={`flex items-center gap-2.5 rounded-lg px-10 py-4 w-fit ${
+                      plan.ctaVariant === "fill"
+                        ? "bg-primary-2 text-background"
+                        : "border border-yellow-500"
+                    }`}
+                  >
+                    <span>Get Started</span>{" "}
+                  </button>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="pricing-pagination swiper-pagination static" />
+        </div>
 
-          <SwiperSlide>
-            <div className="rounded-xl bg-background text-foreground p-5 border border-yellow-500">
+        {/* Desktop: Grid */}
+        <div className="hidden lg:grid grid-cols-3 gap-8">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`rounded-xl p-5 ${
+                plan.highlight === "fill"
+                  ? "bg-primary-1 text-background"
+                  : "bg-background text-foreground border border-yellow-500"
+              }`}
+            >
               <div className="flex flex-col gap-6 mb-6">
-                <h3 className="font-semibold text-2xl">Free</h3>
-                <p className="text-4xl font-bold">$0</p>
-                <p>Capture ideas and find them quickly</p>
+                <h3 className="font-semibold text-2xl">{plan.name}</h3>
+                <p className="text-4xl font-bold">{plan.price}</p>
+                <p>{plan.description}</p>
               </div>
               <ul className="flex flex-col gap-3 mb-6">
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>Sync unlimited devices</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>10 GB monthly uploads</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>200 MB max. note size</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>Customize Home dashboard and access extra widgets</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>Connect primary Google Calendar account</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>
-                      Add due dates, reminders, and notifications to your tasks
-                    </p>
-                  </div>
-                </li>
+                {features.map((feature) => (
+                  <li key={feature}>
+                    <div className="flex gap-5">
+                      <CircleCheckBig color="gold" />
+                      <p>{feature}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
-              <button className="flex items-center gap-2.5 rounded-lg px-10 py-4 border border-yellow-500 w-fit">
+              <button
+                className={`flex items-center gap-2.5 rounded-lg px-10 py-4 w-fit ${
+                  plan.ctaVariant === "fill"
+                    ? "bg-primary-2 text-background"
+                    : "border border-yellow-500"
+                }`}
+              >
                 <span>Get Started</span>{" "}
               </button>
             </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="rounded-xl bg-primary-1 text-background p-5">
-              <div className="flex flex-col gap-6 mb-6">
-                <h3 className="font-semibold text-2xl">Personal</h3>
-                <p className="text-4xl font-bold">$11.2</p>
-                <p>Keep home and family on track</p>
-              </div>
-              <ul className="flex flex-col gap-3 mb-6">
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>Sync unlimited devices</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>10 GB monthly uploads</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>200 MB max. note size</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>Customize Home dashboard and access extra widgets</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>Connect primary Google Calendar account</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>
-                      Add due dates, reminders, and notifications to your tasks
-                    </p>
-                  </div>
-                </li>
-              </ul>
-              <button className="flex items-center gap-2.5 bg-primary-2 rounded-lg px-10 py-4 text-background w-fit">
-                <span>Get Started</span>{" "}
-              </button>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="rounded-xl bg-background text-foreground p-5 border border-yellow-500">
-              <div className="flex flex-col gap-6 mb-6">
-                <h3 className="font-semibold text-2xl">Organization</h3>
-                <p className="text-4xl font-bold">$49.99</p>
-                <p>Capture ideas and find them quickly</p>
-              </div>
-              <ul className="flex flex-col gap-3 mb-6">
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>Sync unlimited devices</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>10 GB monthly uploads</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>200 MB max. note size</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>Customize Home dashboard and access extra widgets</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>Connect primary Google Calendar account</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex gap-5">
-                    <CircleCheckBig color="gold" />
-                    <p>
-                      Add due dates, reminders, and notifications to your tasks
-                    </p>
-                  </div>
-                </li>
-              </ul>
-              <button className="flex items-center gap-2.5 rounded-lg px-10 py-4 border border-yellow-500 w-fit">
-                <span>Get Started</span>{" "}
-              </button>
-            </div>
-          </SwiperSlide>
-        </Swiper>
-        <div className="pricing-pagination swiper-pagination static!" />
+          ))}
+        </div>
       </div>
     </section>
   );
