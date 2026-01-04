@@ -4,6 +4,7 @@ import Extension from "@/components/sections/Extension";
 import Hero from "@/components/sections/Hero";
 import WorkMangement from "@/components/sections/WorkManagement";
 import Pricing from "@/components/sections/Pricing";
+import YourWork from "@/components/sections/YourWork";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Extension />
         <Customise />
         <Pricing />
+        <YourWork />
       </main>
     </>
   );
