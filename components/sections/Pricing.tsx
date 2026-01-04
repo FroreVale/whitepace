@@ -9,6 +9,7 @@ import { Pagination } from "swiper/modules";
 import { CircleCheckBig } from "lucide-react";
 
 export default function Pricing() {
+
   return (
     <section className="bg-background text-foreground">
       <div className="px-4 py-20 max-w-370 mx-auto">
@@ -29,7 +30,15 @@ export default function Pricing() {
         </div>
 
         {/* Swiper */}
-        <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+        <Swiper
+  modules={[Pagination]}
+  pagination={{
+    el: ".pricing-pagination",
+    clickable: true,
+  }}
+  className="mySwiper"
+>
+
           <SwiperSlide>
             <div className="rounded-xl bg-background text-foreground p-5 border border-yellow-500">
               <div className="flex flex-col gap-6 mb-6">
@@ -189,6 +198,7 @@ export default function Pricing() {
             </div>
           </SwiperSlide>
         </Swiper>
+        <div className="pricing-pagination swiper-pagination static!" />
       </div>
     </section>
   );
