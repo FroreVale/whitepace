@@ -29,7 +29,7 @@ export default function Hero() {
             </button>
           </div>
 
-          <div className="lg:flex-1">
+          <div className="lg:flex-1 flex justify-center">
             <Image
               src={businessIllustration}
               alt="Business Meeting Illustration"
