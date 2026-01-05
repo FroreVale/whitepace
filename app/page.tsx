@@ -7,6 +7,7 @@ import Pricing from "@/components/sections/Pricing";
 import YourWork from "@/components/sections/YourWork";
 import Data from "@/components/sections/Data";
 import Sponsors from "@/components/sections/Sponsors";
+import Apps from "@/components/sections/Apps";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <YourWork />
         <Data />
         <Sponsors />
+        <Apps />
       </main>
     </>
   );
